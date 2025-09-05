@@ -12,12 +12,4 @@ import { Header, SearchPanel } from "./components/widgets";
 .head{
   margin-bottom: 20px;
 }
-
-.select{
- background-color: black;
-  color: #fff;
-  border: none;
-  font-size: 16px;
-}
-
 </style>
