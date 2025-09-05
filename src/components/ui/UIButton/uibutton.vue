@@ -1,14 +1,6 @@
 <script setup lang="ts"></script>
 <template>
-  <div class="button-container">
+  <div class="button-container flex items-center justify-around cursor-pointer">
     <slot></slot>
   </div>
 </template>
-<style lang="scss" scoped>
-.button-container {
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  cursor: pointer;
-}
-</style>

@@ -2,23 +2,16 @@
 import { reactive } from "vue";
 
 const props = defineProps({
-  indentLeft: { type: String, default: "260" },
+  indentLeft: { type: String, default: "260px" },
   indentTop: { type: String, default: "0" },
 });
 
 const containerStyle = reactive({
-  padding: `${props.indentTop}px ${props.indentLeft}px`,
+  padding: `${props.indentTop} ${props.indentLeft}`,
 });
 </script>
 <template>
-  <div class="container" >
+  <div :style="containerStyle" class="flex" >
     <slot></slot>
   </div>
 </template>
-
-<style>
-.container {
-  display: flex;
-  padding: 20px 10%;
-}
-</style>

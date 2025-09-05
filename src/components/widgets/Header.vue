@@ -6,7 +6,7 @@ import Container from "./Container.vue";
 const langChosen = ref<IconTypeEnum>("LangRu");
 </script>
 <template>
-  <Container class="header-container" indent-top="20" indent-left="260">
+  <Container class="bg-black justify-between" indent-top="20px" indent-left="10%">
     <div class="navigation-container">
       <router-link to="/" class="rout logo">
         <Icon icon="ICreo"></Icon>
@@ -49,11 +49,6 @@ const langChosen = ref<IconTypeEnum>("LangRu");
   </Container>
 </template>
 <style>
-.header-container {
-  background-color: #000000;
-  display: flex;
-  justify-content: space-between;
-}
 .dellimiter {
   border-radius: 1px;
   height: 50px;

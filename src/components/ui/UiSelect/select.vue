@@ -1,8 +1,10 @@
 <template>
-  <div class="dropdown">
-    <button @click="open = !open" class="dropdown-btn">
+  <div class="relative inline-block font-rubik w-24">
+    <button @click="open = !open" class="flex justify-between font-rubik content-center w-full bg-transparent text-white border-none cursor-pointer p-0 text-sm">
       <span>{{ selected }}</span>
-      <span class="arrow" :class="{ open: open }">▼</span>
+      <span class="arrow" :class="{ open: open }">
+        <Icon icon="Arrow"></Icon>
+      </span>
     </button>
 
     <ul v-if="open" class="dropdown-list">
@@ -19,6 +21,7 @@
 
 <script setup>
 import { ref } from "vue";
+import { Icon } from "../UIIcon";
 
 const items = ["Элементы", "Наркота", "Люди"];
 const selected = ref(items[0]);
@@ -31,28 +34,6 @@ function select(item) {
 </script>
 
 <style scoped>
-.dropdown {
-  position: relative;
-  display: inline-block;
-  width: 95px;
-  font-family: "Rubik", sans-serif;
-}
-
-/* Кнопка */
-.dropdown-btn {
-  display: flex;
-  justify-content: space-between;
-  font-family: "Rubik", sans-serif;
-  align-items: center;
-  width: 100%;
-  background: transparent; /* кнопка прозрачная */
-  color: white;
-  border: none;
-  cursor: pointer;
-  padding: 0px 0px;
-  font-size: 14px;
-  
-}
 
 /* Список */
 .dropdown-list {
