@@ -1,0 +1,32 @@
+:root {
+  background-color: #242424;
+}
+
+body{
+  margin: 0;
+  
+}
+
+.header-container{
+  font-family: "Rubik", sans-serif;
+  user-select: none;
+}
+.rout{
+  cursor: pointer;
+  font-family: "Rubik", sans-serif;
+  user-select: none;
+}
+
+.w-text{
+  color: #fff;
+}
+
+.header-link{
+  padding-right: 20px;
+  color: #fff;
+}
+
+#app {
+  text-align: center;
+}
+
