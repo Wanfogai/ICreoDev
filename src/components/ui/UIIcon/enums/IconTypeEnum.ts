@@ -8,6 +8,7 @@ export const IconTypeEnum = {
   Mail: "Mail",
   Search: "Search",
   Telegram: "Telegram",
+  Arrow:'Arrow'
 } as const;
 
 export type IconTypeEnum = (typeof IconTypeEnum)[keyof typeof IconTypeEnum];

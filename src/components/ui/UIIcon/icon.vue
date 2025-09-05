@@ -30,15 +30,7 @@ watch(
 </script>
 
 <template>
-  <div class="icon-container">
+  <div class="flex select-none">
     <img :src="currentIcon" :alt="'icon:' + icon" />
   </div>
 </template>
-
-<style lang="scss" scoped>
-.icon-container {
-  display: flex;
-
-  user-select: none;
-}
-</style>
