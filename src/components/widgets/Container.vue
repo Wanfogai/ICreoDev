@@ -11,7 +11,7 @@ const containerStyle = reactive({
 });
 </script>
 <template>
-  <div :style="containerStyle" class="flex" >
+  <div :style="containerStyle" class="flex">
     <slot></slot>
   </div>
 </template>
