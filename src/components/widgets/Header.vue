@@ -7,93 +7,60 @@ const langChosen = ref<IconTypeEnum>("LangRu");
 
 const options = [
   { value: IconTypeEnum.LangRu, text: "RU" },
-  { value:  IconTypeEnum.LangUa, text: "UA" },
-  { value:  IconTypeEnum.LangEn, text: "EN" },
+  { value: IconTypeEnum.LangUa, text: "UA" },
+  { value: IconTypeEnum.LangEn, text: "EN" },
 ];
 </script>
+
 <template>
-  
-    <div class="navigation-container">
+  <Container
+    class="bg-black justify-between"
+    indent-top="20px"
+    indent-left="10%"
+  >
+    <!-- Левая часть -->
+    <div class="flex items-center">
       <router-link to="/" class="rout logo">
-        <Icon icon="ICreo"></Icon>
+        <Icon icon="ICreo" />
       </router-link>
-      <div class="dellimiter" />
-      <div class="header-links">
-        <router-link to="/" class="rout header-link">
-          <span>Аудио</span>
+
+      <div class="mx-6 h-[50px] opacity-15 border border-white rounded-[1px]" />
+
+      <div class="flex items-center space-x-6">
+        <router-link to="/" class="rout text-white hover:underline">
+          Аудио
         </router-link>
-        <router-link to="/" class="rout header-link">
-          <span>Живая съемка (UGC)</span>
+        <router-link to="/" class="rout text-white hover:underline">
+          Живая съемка (UGC)
         </router-link>
-        <router-link to="/" class="rout header-link">
-          <span>Шаблоны AE</span>
+        <router-link to="/" class="rout text-white hover:underline">
+          Шаблоны AE
         </router-link>
-        <router-link to="/" class="rout header-link">
-          <span>Ассеты слотов</span>
+        <router-link to="/" class="rout text-white hover:underline">
+          Ассеты слотов
         </router-link>
       </div>
     </div>
-    <div class="control-button">
-      <div class="lang-changer w-text">
-        <Icon :icon="langChosen"></Icon>
-        <UISelect v-model="langChosen" :items="options" class="ml-2"/>
+
+    <!-- Правая часть -->
+    <div class="flex items-center">
+      <div class="flex items-center mr-5 text-white">
+        <Icon :icon="langChosen" />
+        <UISelect v-model="langChosen" :items="options" class="ml-2" />
       </div>
-      <UiButton class="header-button premium-button w-text"
-        ><Icon icon="Crown" class="premium-icon"></Icon
-        ><span>Больше с премиум подпиской</span></UiButton
+
+      <UiButton
+        class="flex items-center font-bold text-white bg-[#7728ff] rounded-full px-6 py-2 mr-5"
       >
-      <UiButton class="header-button login-button w-text">Вход</UiButton>
+        <Icon icon="Crown" class="mr-2" />
+        Больше с премиум подпиской
+      </UiButton>
+
+      <UiButton
+        class="text-white border border-white rounded-full px-6 py-2 bg-transparent"
+      >
+        Вход
+      </UiButton>
     </div>
+  </Container>
 </template>
-<style>
-.dellimiter {
-  border-radius: 1px;
-  height: 50px;
-  opacity: 15%;
-  border: 1px solid #fff;
-  margin: 0 24px;
-}
-
-.control-button {
-  display: flex;
-  align-items: center;
-}
-
-.navigation-container {
-  display: flex;
-}
-
-.header-links {
-  display: flex;
-  align-items: center;
-}
-
-.header-button {
-  margin-right: 20px;
-}
-
-.premium-icon {
-  margin-right: 8px;
-}
-
-.premium-button {
-  background-color: #7728ff;
-  padding: 10px 24px;
-  border-radius: 100px;
-  font-weight: bold;
-}
-
-.login-button {
-  background-color: transparent;
-  border: 1px solid #fff;
-  border-radius: 100px;
-  padding: 10px 24px;
-}
-
-.lang-changer {
-  display: flex;
-  align-items: center;
-  justify-self: unset;
-  margin-right: 20px;
-}
-</style>
