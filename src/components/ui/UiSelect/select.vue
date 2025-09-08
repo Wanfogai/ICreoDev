@@ -1,76 +1,71 @@
 <template>
-  <div class="relative inline-block font-rubik w-24">
-    <button @click="open = !open" class="flex justify-between font-rubik content-center w-full bg-transparent text-white border-none cursor-pointer p-0 text-sm">
-      <span>{{ selected }}</span>
-      <span class="arrow" :class="{ open: open }">
-        <Icon icon="Arrow"></Icon>
+  <div ref="wrapper" class="relative inline-block font-rubik min-w-max">
+    <button
+      @click="toggle"
+      class="flex items-center justify-between gap-2 w-full  bg-transparent text-white cursor-pointer text-sm"
+    >
+      <span cla>{{ selected }}</span>
+      <span
+        class="transition-transform duration-200 inline-block"
+        :class="{ 'rotate-180': open }"
+      >
+        <Icon icon="Arrow" />
       </span>
     </button>
 
-    <ul v-if="open" class="dropdown-list">
-      <li
-        v-for="item in items"
-        :key="item"
-        @click="select(item)"
-      >
-        {{ item }}
-      </li>
-    </ul>
+    <transition
+      enter-active-class="transition transform ease-out duration-150"
+      enter-from-class="opacity-0 scale-95"
+      enter-to-class="opacity-100 scale-100"
+      leave-active-class="transition transform ease-in duration-100"
+      leave-from-class="opacity-100 scale-100"
+      leave-to-class="opacity-0 scale-95"
+    >
+      <ul
+  v-show="open"
+  class="absolute top-full left-1/2 -translate-x-1/2 mt-2
+         bg-[#1e1e1e] text-white rounded-md z-10 overflow-hidden
+         shadow-[0_4px_10px_rgba(0,0,0,0.4)] list-none
+         min-w-max"
+>
+  <li
+    v-for="item in items"
+    :key="item"
+    @click="select(item)"
+    class="px-3 py-2 cursor-pointer hover:bg-[#333] transition-colors"
+  >
+    {{ item.text }}
+  </li>
+</ul>
+    </transition>
   </div>
 </template>
 
 <script setup>
-import { ref } from "vue";
+import { ref, onMounted, onBeforeUnmount, useModel } from "vue";
 import { Icon } from "../UIIcon";
 
-const items = ["Элементы", "Наркота", "Люди"];
-const selected = ref(items[0]);
-const open = ref(false);
+const model = defineModel({ type: [String, Number, null], default: null });
 
+const props = defineProps({
+  items: { type: Array, default: () => [] },
+});
+
+const selected = ref(props.items[0].text);
+const open = ref(false);
+const wrapper = ref(null);
+
+function toggle() {
+  open.value = !open.value;
+}
 function select(item) {
-  selected.value = item;
+  selected.value = item.text;
+  model.value = item.value;
   open.value = false;
 }
+function handleClickOutside(e) {
+  if (wrapper.value && !wrapper.value.contains(e.target)) open.value = false;
+}
+onMounted(() => document.addEventListener("click", handleClickOutside));
+onBeforeUnmount(() => document.removeEventListener("click", handleClickOutside));
 </script>
-
-<style scoped>
-
-/* Список */
-.dropdown-list {
-  position: absolute;
-  top: 100%;
-  left: 0;
-  margin-top: 4px;
-  width: 100%;
-  background: #1e1e1e;
-  color: white;
-  border-radius: 6px;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.4);
-  overflow: hidden;
-  z-index: 10;
-
-  /* убираем отступы и маркеры */
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
-
-.dropdown-list li {
-  padding: 8px 12px;
-  cursor: pointer;
-  transition: background 0.2s;
-}
-
-.dropdown-list li:hover {
-  background: #333;
-}
-
-/* Стрелка */
-.arrow {
-  transition: transform 0.2s;
-}
-
-.arrow.open {
-  transform: rotate(180deg);
-}
-</style>
