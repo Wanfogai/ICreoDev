@@ -2,7 +2,7 @@
 import { reactive } from "vue";
 
 const props = defineProps({
-  indentLeft: { type: String, default: "260px" },
+  indentLeft: { type: String, default: "0" },
   indentTop: { type: String, default: "0" },
 });
 
