@@ -2,9 +2,9 @@
   <div ref="wrapper" class="relative inline-block font-rubik min-w-max">
     <button
       @click="toggle"
-      class="flex items-center justify-between gap-2 w-full  bg-transparent text-white cursor-pointer text-sm"
+      class="flex items-center justify-between gap-2 w-full bg-transparent text-white cursor-pointer text-base"
     >
-      <span cla>{{ selected }}</span>
+      <span>{{ selected }}</span>
       <span
         class="transition-transform duration-200 inline-block"
         :class="{ 'rotate-180': open }"
@@ -22,21 +22,18 @@
       leave-to-class="opacity-0 scale-95"
     >
       <ul
-  v-show="open"
-  class="absolute top-full left-1/2 -translate-x-1/2 mt-2
-         bg-[#1e1e1e] text-white rounded-md z-10 overflow-hidden
-         shadow-[0_4px_10px_rgba(0,0,0,0.4)] list-none
-         min-w-max"
->
-  <li
-    v-for="item in items"
-    :key="item"
-    @click="select(item)"
-    class="px-3 py-2 cursor-pointer hover:bg-[#333] transition-colors"
-  >
-    {{ item.text }}
-  </li>
-</ul>
+        v-show="open"
+        class="absolute top-full left-1/2 -translate-x-1/2 mt-2 bg-[#1e1e1e] text-white rounded-md z-10 overflow-hidden shadow-[0_4px_10px_rgba(0,0,0,0.4)] list-none min-w-max"
+      >
+        <li
+          v-for="item in items"
+          :key="item"
+          @click="select(item)"
+          class="px-3 py-2 cursor-pointer hover:bg-[#333] transition-colors"
+        >
+          {{ item.text }}
+        </li>
+      </ul>
     </transition>
   </div>
 </template>
@@ -67,5 +64,7 @@ function handleClickOutside(e) {
   if (wrapper.value && !wrapper.value.contains(e.target)) open.value = false;
 }
 onMounted(() => document.addEventListener("click", handleClickOutside));
-onBeforeUnmount(() => document.removeEventListener("click", handleClickOutside));
+onBeforeUnmount(() =>
+  document.removeEventListener("click", handleClickOutside)
+);
 </script>
