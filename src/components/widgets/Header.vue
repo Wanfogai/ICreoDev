@@ -1,12 +1,18 @@
 <script setup lang="ts">
 import { ref } from "vue";
-import { Icon, IconTypeEnum, UiButton } from "../ui";
+import { Icon, IconTypeEnum, UiButton, UISelect } from "../ui";
 import Container from "./Container.vue";
 
 const langChosen = ref<IconTypeEnum>("LangRu");
+
+const options = [
+  { value: IconTypeEnum.LangRu, text: "RU" },
+  { value:  IconTypeEnum.LangUa, text: "UA" },
+  { value:  IconTypeEnum.LangEn, text: "EN" },
+];
 </script>
 <template>
-  <Container class="bg-black justify-between" indent-top="20px" indent-left="10%">
+  
     <div class="navigation-container">
       <router-link to="/" class="rout logo">
         <Icon icon="ICreo"></Icon>
@@ -30,15 +36,7 @@ const langChosen = ref<IconTypeEnum>("LangRu");
     <div class="control-button">
       <div class="lang-changer w-text">
         <Icon :icon="langChosen"></Icon>
-        <select
-          name="languages"
-          class="select"
-          v-model="langChosen"
-        >
-          <option :value="IconTypeEnum.LangRu">RU</option>
-          <option :value="IconTypeEnum.LangEn">EN</option>
-          <option :value="IconTypeEnum.LangUa">UA</option>
-        </select>
+        <UISelect v-model="langChosen" :items="options" class="ml-2"/>
       </div>
       <UiButton class="header-button premium-button w-text"
         ><Icon icon="Crown" class="premium-icon"></Icon
@@ -46,7 +44,6 @@ const langChosen = ref<IconTypeEnum>("LangRu");
       >
       <UiButton class="header-button login-button w-text">Вход</UiButton>
     </div>
-  </Container>
 </template>
 <style>
 .dellimiter {
