@@ -10,7 +10,7 @@ export default class ServiceCardModel {
     this.size = size;
     this.autoWrap = autoWrap;
   }
-  id: String;
+  id: String = "";
   background: String = "";
   text: String = "";
   size: Number = 50;
