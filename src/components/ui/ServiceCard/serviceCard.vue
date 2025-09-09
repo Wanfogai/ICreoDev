@@ -36,7 +36,9 @@ const CardStyle = computed(() => {
   };
 
   if (props.model.background) {
-    style.backgroundImage = `url(${image.value})`;
+    style.backgroundImage = `url(${
+      new URL(image.value, import.meta.url).href
+    })`;
   }
 
   if (props.model.autoWrap) {
@@ -47,7 +49,6 @@ const CardStyle = computed(() => {
 
   return style;
 });
-
 onMounted(() => {
   image.value = "/src/assets/images/" + props.model.background;
 });
