@@ -27,16 +27,12 @@ const options = [
       <div class="mx-6 h-[50px] opacity-15 border border-white rounded-[1px]" />
 
       <div class="flex items-center space-x-6">
-        <router-link to="/" class="rout text-white hover:underline">
-          Аудио
-        </router-link>
-        <router-link to="/" class="rout text-white hover:underline">
+        <router-link to="/" class="rout text-white"> Аудио </router-link>
+        <router-link to="/" class="rout text-white">
           Живая съемка (UGC)
         </router-link>
-        <router-link to="/" class="rout text-white hover:underline">
-          Шаблоны AE
-        </router-link>
-        <router-link to="/" class="rout text-white hover:underline">
+        <router-link to="/" class="rout text-white"> Шаблоны AE </router-link>
+        <router-link to="/" class="rout text-white">
           Ассеты слотов
         </router-link>
       </div>
