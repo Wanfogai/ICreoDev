@@ -4,7 +4,7 @@ import { UiButton } from "../ui";
 </script>
 <template>
   <Container
-    class="bg-black font-unbounded flex flex-col items-center rounded-[32px] mx-[10%] mt-[100px] h-min bg-[linear-gradient(90deg,rgba(0,0,0,0.49)_0%,rgba(0,0,0,0.8)_50%,rgba(0,0,0,0.5)_100%),url('/src/assets/images/HeroBack.png')] bg-cover bg-center"
+    class="bg-black font-unbounded flex flex-col items-center rounded-[32px] mx-[260px] mt-[100px] h-min bg-[linear-gradient(90deg,rgba(0,0,0,0.49)_0%,rgba(0,0,0,0.8)_50%,rgba(0,0,0,0.5)_100%),url('/src/assets/images/HeroBack.png')] bg-cover bg-center"
   >
     <div
       class="absolute left-[130px] -rotate-[9deg] bg-[#7728ff4d] backdrop-blur-md text-white rounded-[32px] px-8 py-5 flex items-center text-2xl font-bold"

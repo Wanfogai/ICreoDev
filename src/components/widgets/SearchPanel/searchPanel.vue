@@ -11,7 +11,7 @@ const options = [
 ];
 </script>
 <template>
-  <Container class="justify-between" indent-top="20px" indent-left="10%">
+  <Container class="justify-between" indent-top="20px" indent-left="260px">
     <div
       class="flex border-solid border-2 border-slate-700 rounded-2xl px-4 py-5 items-center w-full"
     >

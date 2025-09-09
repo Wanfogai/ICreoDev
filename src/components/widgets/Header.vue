@@ -14,9 +14,9 @@ const options = [
 
 <template>
   <Container
-    class="bg-black justify-between"
+    class="bg-black justify-between flex"
     indent-top="20px"
-    indent-left="10%"
+    indent-left="260px"
   >
     <!-- Левая часть -->
     <div class="flex items-center">

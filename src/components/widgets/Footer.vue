@@ -8,7 +8,7 @@ function scrollToTop() {
 </script>
 <template>
   <Container
-    indent-left="13%"
+    indent-left="378px"
     class="bg-black flex flex-row justify-start items-start"
     indent-top="40px"
   >
