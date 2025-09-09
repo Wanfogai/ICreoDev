@@ -15,7 +15,7 @@
 </template>
 
 <script setup lang="ts">
-import { computed, ref } from "vue";
+import { computed } from "vue";
 import { UiButton } from "../UIButton";
 import { Icon } from "../UIIcon";
 import ServiceCardModel from "./models/ServiceCardModel";
