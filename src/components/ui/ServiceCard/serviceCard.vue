@@ -15,7 +15,7 @@
 </template>
 
 <script setup lang="ts">
-import { computed, onMounted, ref } from "vue";
+import { computed, ref } from "vue";
 import { UiButton } from "../UIButton";
 import { Icon } from "../UIIcon";
 import ServiceCardModel from "./models/ServiceCardModel";
@@ -27,8 +27,6 @@ const props = defineProps({
   },
 });
 
-const image = ref("");
-
 const CardStyle = computed(() => {
   const style: Record<string, string> = {
     backgroundSize: "cover",
@@ -36,9 +34,7 @@ const CardStyle = computed(() => {
   };
 
   if (props.model.background) {
-    style.backgroundImage = `url(${
-      new URL(image.value, import.meta.url).href
-    })`;
+    style.backgroundImage = `url(/images/${props.model.background})`;
   }
 
   if (props.model.autoWrap) {
@@ -48,8 +44,5 @@ const CardStyle = computed(() => {
   }
 
   return style;
-});
-onMounted(() => {
-  image.value = "/src/assets/images/" + props.model.background;
 });
 </script>

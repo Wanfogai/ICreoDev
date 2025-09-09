@@ -66,7 +66,7 @@ function scrollToTop() {
           </div>
         </div>
         <div>
-          <img src="/src/assets/images/TgQr.png" class="w-40 h-40" />
+          <img src="/images/TgQr.png" class="w-40 h-40" />
         </div>
       </Container>
 
