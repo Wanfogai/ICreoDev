@@ -9,7 +9,10 @@ function scrollToTop() {
 
 const openIndex = ref();
 
-const footerSections = [
+const footerSections: Array<{
+  title: String;
+  links: Array<{ name: String; rout: String }>;
+}> = [
   {
     title: "Ссылки",
     links: [
@@ -22,7 +25,10 @@ const footerSections = [
   },
   {
     title: "Контакты",
-    links: ["Telegram", "youremail@gmail.com"],
+    links: [
+      { name: "Telegram", rout: "" },
+      { name: "youremail@gmail.com", rout: "" },
+    ],
   },
 ];
 </script>
@@ -76,10 +82,12 @@ const footerSections = [
                 v-if="openIndex === i"
                 class="pl-2 pb-4 space-y-2 text-gray-400 text-sm w-full"
               >
-                <li v-for="link in section.links" :key="link.name">
-                  <a :href="link.rout" class="hover:text-white transition">{{
-                    link.name
-                  }}</a>
+                <li v-for="link in section.links" :key="link.name.toString()">
+                  <a
+                    :href="link.rout.toString()"
+                    class="hover:text-white transition"
+                    >{{ link.name }}</a
+                  >
                 </li>
               </ul>
             </transition>
