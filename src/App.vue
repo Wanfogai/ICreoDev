@@ -24,31 +24,19 @@ const row2 = [
 
 <template>
   <Container
-    class="flex-col bg-[linear-gradient(180deg,rgba(0,0,0,0.2)_0%,rgba(25,0,246,0.2)_50%,rgba(0,0,0,0.7)_100%)]"
+    class="flex-col w-full bg-[linear-gradient(180deg,rgba(0,0,0,0.2)_0%,rgba(25,0,246,0.2)_50%,rgba(0,0,0,0.7)_100%)]"
   >
-    <Header class="head" />
+    <Header />
     <SearchPanel />
     <HeroBlock class="mb-[60px]" />
 
-    <Container
-      indent-left="260px"
-      class="flex gap-4 w-full overflow-x-auto mb-[1%]"
-    >
+    <Container class="flex gap-4 w-full overflow-x-auto mb-[1%] md:px-[260px]">
       <ServiceCard v-for="(card, i) in [...row1]" :key="i" :model="card" />
     </Container>
-    <Container
-      indent-left="260px"
-      class="flex gap-4 w-full overflow-x-auto mb-[4%]"
-    >
+    <Container class="flex gap-4 w-full overflow-x-auto mb-[4%] md:px-[260px]">
       <ServiceCard v-for="(card, i) in [...row2]" :key="i" :model="card" />
     </Container>
 
     <Footer />
   </Container>
 </template>
-
-<style scoped>
-.head {
-  margin-bottom: 20px;
-}
-</style>

@@ -4,24 +4,24 @@ import { UiButton } from "../ui";
 </script>
 <template>
   <Container
-    class="bg-black font-unbounded flex flex-col items-center rounded-[32px] mx-[260px] mt-[100px] h-min bg-[linear-gradient(90deg,rgba(0,0,0,0.49)_0%,rgba(0,0,0,0.8)_50%,rgba(0,0,0,0.5)_100%),url('/images/HeroBack.png')] bg-cover bg-center"
+    class="bg-black font-unbounded flex flex-col items-center rounded-[32px] md:mx-[260px] mt-[100px] bg-[linear-gradient(90deg,rgba(0,0,0,0.49)_0%,rgba(0,0,0,0.8)_50%,rgba(0,0,0,0.5)_100%),url('/images/HeroBack.png')] bg-cover bg-center"
   >
     <div
-      class="absolute left-[199px] -rotate-[8deg] bg-[#7728ff4d] backdrop-blur-md text-white rounded-[32px] px-8 py-5 flex items-center text-2xl font-bold"
+      class="hidden md:flex absolute left-[199px] -rotate-[8deg] bg-[#7728ff4d] backdrop-blur-md text-white rounded-[32px] px-8 py-5 flex items-center text-2xl font-bold"
     >
       Умеешь создавать крутые вещи?
     </div>
-    <Container class="flex font-bold text-5xl mb-[80px]">
+    <Container class="flex font-bold md:text-5xl md:mb-[80px]">
       <Container>
         <span
-          class="text-white flex flex-col items-start pt-[237px] px-[80px] pl-[83px] leading-[60px]"
+          class="text-white flex flex-col items-start md:pt-[237px] md:px-[80px] md:pl-[83px] leading-[60px]"
           ><span>Стань автором</span>
           <span class="text-[#7728ff]">ЗАРАБАТЫВАЙ!</span>
         </span>
       </Container>
       <Container>
         <span
-          class="text-white flex flex-col items-end pt-[237px] pr-[80px] pl-[83px] leading-[60px]"
+          class="text-white flex flex-col items-end md:pt-[237px] md:pr-[80px] md:pl-[83px] leading-[60px]"
           ><span>Не трать время</span>
           <span class="text-[#7728ff]">ПОЛЬЗУЙСЯ!</span>
         </span>
