@@ -12,6 +12,7 @@ const openIndex = ref();
 const footerSections: Array<{
   title: string;
   links: Array<{ name: string; rout: string; icon?: IconTypeEnum }>;
+  image?: string;
 }> = [
   {
     title: "Ссылки",
@@ -33,6 +34,7 @@ const footerSections: Array<{
         icon: "Mail",
       },
     ],
+    image: "/images/TgQr.png",
   },
 ];
 </script>
@@ -82,19 +84,23 @@ const footerSections: Array<{
                 v-if="openIndex === i"
                 class="pl-2 pb-4 space-y-2 text-gray-400 text-base w-full"
               >
+                <img
+                  v-if="section.image"
+                  :src="section.image"
+                  alt="qr"
+                  class="w-[50px] absolute right-[40px]"
+                />
                 <li
                   v-for="link in section.links"
                   :key="link.name"
                   class="flex items-center gap-2"
                 >
-                  <!-- Если иконка есть — показываем -->
                   <Icon
                     v-if="link.icon"
                     :icon="link.icon"
                     class="w-5 h-5 text-gray-400"
                   />
 
-                  <!-- Сама ссылка -->
                   <a :href="link.rout" class="hover:text-white transition">
                     {{ link.name }}
                   </a>

@@ -30,7 +30,7 @@ watch(
 </script>
 
 <template>
-  <div class="flex select-none">
+  <div class="flex">
     <img :src="currentIcon" :alt="'icon:' + icon" />
   </div>
 </template>

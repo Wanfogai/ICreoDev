@@ -58,7 +58,7 @@ const options = [
       <UiButton
         class="text-white md:border border-white rounded-full pr-3 md:px-6 py-2 bg-transparent"
       >
-        <span class="select-none">Вход</span>
+        <span>Вход</span>
       </UiButton>
     </div>
   </Container>
