@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { Icon } from "../ui";
+import { Icon, IconTypeEnum } from "../ui";
 import { Container } from ".";
 import { ref } from "vue";
 
@@ -10,8 +10,8 @@ function scrollToTop() {
 const openIndex = ref();
 
 const footerSections: Array<{
-  title: String;
-  links: Array<{ name: String; rout: String }>;
+  title: string;
+  links: Array<{ name: string; rout: string; icon?: IconTypeEnum }>;
 }> = [
   {
     title: "Ссылки",
@@ -26,8 +26,12 @@ const footerSections: Array<{
   {
     title: "Контакты",
     links: [
-      { name: "Telegram", rout: "" },
-      { name: "youremail@gmail.com", rout: "" },
+      { name: "Telegram", rout: "#", icon: "Telegram" },
+      {
+        name: "youremail@gmail.com",
+        rout: "mailto:youremail@gmail.com",
+        icon: "Mail",
+      },
     ],
   },
 ];
@@ -48,15 +52,11 @@ const footerSections: Array<{
             <br />никаких ограничений по контенту.</span
           >
         </div>
-        <div class="md:hidden w-full px-[32px]">
-          <div
-            v-for="(section, i) in footerSections"
-            :key="i"
-            class="border-b border-gray-700 w-full"
-          >
+        <div class="md:hidden w-full font-rubik px-[32px]">
+          <div v-for="(section, i) in footerSections" :key="i" class="w-full">
             <button
               @click="openIndex = openIndex === i ? null : i"
-              class="w-full flex justify-between items-center py-4 text-left font-semibold text-lg"
+              class="w-full flex justify-between items-center py-2 text-left font-semibold text-lg"
             >
               <span class="text-white">{{ section.title }}</span>
               <svg
@@ -80,14 +80,24 @@ const footerSections: Array<{
             <transition name="accordion">
               <ul
                 v-if="openIndex === i"
-                class="pl-2 pb-4 space-y-2 text-gray-400 text-sm w-full"
+                class="pl-2 pb-4 space-y-2 text-gray-400 text-base w-full"
               >
-                <li v-for="link in section.links" :key="link.name.toString()">
-                  <a
-                    :href="link.rout.toString()"
-                    class="hover:text-white transition"
-                    >{{ link.name }}</a
-                  >
+                <li
+                  v-for="link in section.links"
+                  :key="link.name"
+                  class="flex items-center gap-2"
+                >
+                  <!-- Если иконка есть — показываем -->
+                  <Icon
+                    v-if="link.icon"
+                    :icon="link.icon"
+                    class="w-5 h-5 text-gray-400"
+                  />
+
+                  <!-- Сама ссылка -->
+                  <a :href="link.rout" class="hover:text-white transition">
+                    {{ link.name }}
+                  </a>
                 </li>
               </ul>
             </transition>
@@ -157,7 +167,7 @@ const footerSections: Array<{
 <style>
 .accordion-enter-active,
 .accordion-leave-active {
-  transition: max-height 0.3s ease, opacity 0.3s ease;
+  transition: max-height 0.5s ease, opacity 0.5s ease;
   overflow: hidden;
 }
 
