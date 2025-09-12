@@ -22,7 +22,7 @@ const options = [
         <BurgerButton />
       </div>
       <router-link to="/" class="rout logo">
-        <Icon icon="ICreo" />
+        <Icon icon="ICreo" class="md:w-[70px] w-[60px]" />
       </router-link>
 
       <div
@@ -49,9 +49,9 @@ const options = [
       </div>
 
       <UiButton
-        class="flex items-center font-bold text-white bg-[#7728ff] rounded-full px-6 py-2 mr-5"
+        class="flex items-center font-bold text-white bg-[#7728ff] rounded-full md:px-6 px-[13px] py-2 mr-5"
       >
-        <Icon icon="Crown" class="" />
+        <Icon icon="Crown" />
         <span class="hidden md:flex ml-2">Больше с премиум подпиской</span>
       </UiButton>
 
