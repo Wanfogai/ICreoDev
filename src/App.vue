@@ -28,14 +28,24 @@ const row2 = [
   >
     <Header />
     <SearchPanel />
-    <HeroBlock class="mb-[60px]" />
+    <HeroBlock class="md:mb-[60px]" />
 
-    <Container class="flex gap-4 w-full overflow-x-auto mb-[1%] md:px-[260px]">
-      <ServiceCard v-for="(card, i) in [...row1]" :key="i" :model="card" />
-    </Container>
-    <Container class="flex gap-4 w-full overflow-x-auto mb-[4%] md:px-[260px]">
-      <ServiceCard v-for="(card, i) in [...row2]" :key="i" :model="card" />
-    </Container>
+    <div class="md:block hidden">
+      <Container class="flex gap-4 w-full overflow-x-auto mb-[1%] px-[260px]">
+        <ServiceCard v-for="(card, i) in [...row1]" :key="i" :model="card" />
+      </Container>
+      <Container class="flex gap-4 w-full overflow-x-auto mb-[4%] px-[260px]">
+        <ServiceCard v-for="(card, i) in [...row2]" :key="i" :model="card" />
+      </Container>
+    </div>
+    <div class="md:hidden items-center flex flex px-[20px]">
+      <Container class="flex flex-col gap-4 w-full mb-[20px] overflow-x-auto">
+        <ServiceCard v-for="(card, i) in [...row1]" :key="i" :model="card" />
+      </Container>
+      <Container class="flex flex-col gap-4 w-full overflow-x-auto">
+        <ServiceCard v-for="(card, i) in [...row2]" :key="i" :model="card" />
+      </Container>
+    </div>
 
     <Footer />
   </Container>
