@@ -56,7 +56,7 @@ const options = [
       </UiButton>
 
       <UiButton
-        class="text-white md:border border-white rounded-full pr-3 md:px-6 py-2 bg-transparent"
+        class="text-white md:border border-white rounded-full pr-[20px] md:px-6 py-2 bg-transparent"
       >
         <span>Вход</span>
       </UiButton>
