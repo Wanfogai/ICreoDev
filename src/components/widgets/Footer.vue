@@ -81,15 +81,16 @@ const footerSections: Array<{
 
             <transition name="accordion">
               <ul
-                v-if="openIndex === i"
+                v-show="openIndex === i"
                 class="pl-2 pb-4 space-y-2 text-gray-400 text-base w-full"
               >
-                <img
-                  v-if="section.image"
-                  :src="section.image"
-                  alt="qr"
-                  class="w-[50px] absolute right-[40px]"
-                />
+                <a href="#">
+                  <img
+                    v-show="section.image"
+                    :src="section.image"
+                    alt="qr"
+                    class="w-[50px] absolute right-[40px]"
+                /></a>
                 <li
                   v-for="link in section.links"
                   :key="link.name"
@@ -185,7 +186,7 @@ const footerSections: Array<{
 
 .accordion-enter-to,
 .accordion-leave-from {
-  max-height: 500px; /* запас по высоте */
+  max-height: 500px;
   opacity: 1;
 }
 </style>
