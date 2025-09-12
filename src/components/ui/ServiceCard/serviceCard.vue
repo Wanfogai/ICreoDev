@@ -1,10 +1,37 @@
 <template>
+  <div class="px-[16px] w-[159px] pt-[12px] relative md:hidden flex">
+    <span class="md:hidden flex font-unbounded text-white font-bold mr-3">
+      {{ model.text }}
+    </span>
+
+    <div
+      class="absolute inset-0 rounded-[20px] p-[1px] h-[125px] bg-gradient-to-b from-white/30 to-[#04002f4d]"
+      style="
+        -webkit-mask: linear-gradient(#fff 0 0) content-box,
+          linear-gradient(#fff 0 0);
+        -webkit-mask-composite: xor;
+        mask-composite: exclude;
+      "
+    ></div>
+  </div>
+
   <div
-    class="flex pb-[20px] px-[40px] min-h-[260px] items-end border-[1px] border-white rounded-[20px]"
+    class="relative flex pb-[20px] px-[40px] md:min-h-[260px] min-h-[89px] md:w-auto w-[159px] items-end rounded-[20px] overflow-hidden"
     :style="CardStyle"
   >
+    <!-- Градиентная рамка -->
+    <div
+      class="absolute inset-0 rounded-[20px] p-[1px] bg-gradient-to-b from-white/30 to-[#04002f4d]"
+      style="
+        -webkit-mask: linear-gradient(#fff 0 0) content-box,
+          linear-gradient(#fff 0 0);
+        -webkit-mask-composite: xor;
+        mask-composite: exclude;
+      "
+    ></div>
+    <!-- Контент -->
     <UiButton
-      class="py-[30px] w-full bg-[rgba(255,255,255,0.7)] rounded-[100px] flex justify-center border-white border-[1px]"
+      class="relative z-10 py-[30px] w-full hidden md:flex bg-[rgba(255,255,255,0.7)] rounded-[100px] flex justify-center border-white border-[1px]"
     >
       <span class="font-unbounded text-2xl font-bold mr-3">
         {{ model.text }}
